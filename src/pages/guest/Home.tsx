@@ -1,10 +1,9 @@
-import Navbar from "../../components/Navbar";
-import MovieCard from "../../components/MovieCard";
 import { useMovies } from "../../context/MoviesContext";
 import { useMemo, useState } from "react";
-import SearchBar from "../../components/SearchBar";
-import Dropdown from "../../components/Dropdown";
+import SearchBar from "../../components/ui/SearchBar";
+import Dropdown from "../../components/ui/Dropdown";
 import type { Movie } from "../../domain/Movie";
+import MovieCard from "../../components/ui/cards/MovieCard";
 
 function Home() {
   const { state } = useMovies();

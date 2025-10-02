@@ -2,10 +2,11 @@ import { Link, useNavigate } from "react-router";
 import { MdLocalMovies } from "react-icons/md";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { useUser } from "../context/UserContext";
-import { i18n } from "../i18n";
-import { UserRole } from "../domain/User";
-import ProfileSection from "./ProfileSection";
+import { useUser } from "../../context/UserContext";
+import { i18n } from "../../i18n";
+import { UserRole } from "../../domain/User";
+import ProfileSection from "../ProfileSection";
+
 
 function Navbar() {
   const navigate = useNavigate();

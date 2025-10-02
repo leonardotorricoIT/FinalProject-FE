@@ -4,12 +4,12 @@ import { FaArrowLeft } from "react-icons/fa";
 import RatingBadge from "../../components/RatingBadge";
 import { i18n } from "../../i18n";
 import { useUser } from "../../context/UserContext";
-import Toast from "../../components/Toast";
+import Toast from "../../components/ui/Toast";
 import { useState } from "react";
 import ReviewComponent from "../../components/review/ReviewComponent";
 import AddEditReviewForm from "../../components/review/AddEditReviewForm";
 import { useMovieReviews } from "./hooks/useMovieReviews";
-import CastCard from "../../components/CastCard";
+import CastCard from "../../components/ui/cards/CastCard";
 import type { Review } from "../../domain/Review";
 
 function MovieDetail() {
@@ -33,7 +33,6 @@ function MovieDetail() {
       : 0;
   const isInWatched = user?.watched?.includes(movieId);
   const isInWatchlist = user?.watchlist?.includes(movieId);
-
 
   const handleSubmitReview = async (
     reviewData: Omit<Review, "id" | "createdAt">
@@ -141,10 +140,18 @@ function MovieDetail() {
                       </span>
                     ))}
                   </p>
+                  <p className="text-lg text-gray-500">
+                    tags •{" "}
+                    {movie.tags?.map((tag, index) => (
+                      <span key={index}>
+                        {tag}
+                        {index < (movie.tags?.length ?? 0) - 1 ? ", " : ""}
+                      </span>
+                    ))}
+                  </p>
                 </div>
 
                 <RatingBadge rating={avgRating} />
-
               </div>
 
               <p className="font-semibold dark:text-white">

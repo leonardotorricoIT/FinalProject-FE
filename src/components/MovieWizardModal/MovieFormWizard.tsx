@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Movie } from "../../domain/Movie";
 import AddEditMovieModal from "../AddEditMovieModal/AddEditMovieModal";
-import BreadCrumbSteps from "../BreadCrumbsSteps";
+import BreadCrumbSteps from "../ui/breadCrumb/BreadCrumbsSteps";
 import {
   buildTouched,
   makeEmptyMovieDraft,
