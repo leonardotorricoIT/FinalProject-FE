@@ -1,6 +1,6 @@
 import { useFormikContext } from "formik";
-import InputField from "../InputField";
-import ListInputField from "../ListInputField";
+import InputField from "../ui/form/InputField";
+import ListInputField from "../ui/form/ListInputField";
 import {
   secondStepFields,
   type FieldType,

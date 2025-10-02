@@ -1,18 +1,17 @@
 import { MdEdit, MdDelete } from "react-icons/md";
-import { Table } from "../../components/Table";
+import { Table } from "../../components/ui/Table";
 import { useState, lazy, Suspense, useMemo } from "react";
-import Navbar from "../../components/Navbar";
 import type { Movie } from "../../domain/Movie";
 import { useMovies } from "../../context/MoviesContext";
 import LoadingModal from "../../components/LoadingModalFallback";
 import { makeEmptyMovieDraft } from "../../components/AddEditMovieModal/movieFormHelpers";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../components/ui/SearchBar";
 
 const MovieFormWizard = lazy(
   () => import("../../components/MovieWizardModal/MovieFormWizard")
 );
 
-const ConfirmModal = lazy(() => import("../../components/ConfirmModal"));
+const ConfirmModal = lazy(() => import("../../components/ui/ConfirmModal"));
 const Toast = lazy(() => import("../../components/Toast"));
 
 type WizardMode = "create" | "edit";

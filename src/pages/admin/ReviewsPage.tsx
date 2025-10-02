@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import Stars from "../../components/Stars";
-import { Table } from "../../components/Table";
+import { Table } from "../../components/ui/Table";
 import { dbPromise } from "../../db/db";
 import { useMovies } from "../../context/MoviesContext";
 import type { User } from "../../domain/User";
-import SearchBar from "../../components/SearchBar";
+import SearchBar from "../../components/ui/SearchBar";
 import type { Review } from "../../domain/Review";
 
 function ReviewsPage() {

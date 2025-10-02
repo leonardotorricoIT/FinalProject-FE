@@ -2,12 +2,12 @@ import { useState } from "react";
 import { useUser } from "../../context/UserContext";
 import { useMovies } from "../../context/MoviesContext";
 import { i18n } from "../../i18n";
-import MovieCard from "../../components/MovieCard";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
-import StatCard from "../../components/StatCard";
+import StatCard from "../../components/ui/cards/StatCard";
 import MyReviews from "../../components/review/MyReviews";
 import Toast from "../../components/Toast";
+import MovieCard from "../../components/ui/cards/MovieCard";
 
 type ToastState = { message: string; type: "success" | "error" } | null;
 

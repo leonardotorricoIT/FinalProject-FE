@@ -8,7 +8,7 @@ import AddEditReviewForm from "./AddEditReviewForm";
 import { useMovies } from "../../context/MoviesContext";
 import { i18n } from "../../i18n";
 
-const DeleteReviewModal = lazy(() => import("../ConfirmModal"));
+const DeleteReviewModal = lazy(() => import("../ui/ConfirmModal"));
 const Toast = lazy(() => import("../Toast"));
 
 type ReviewComponentProps = {

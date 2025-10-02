@@ -9,7 +9,7 @@ import { useState } from "react";
 import ReviewComponent from "../../components/review/ReviewComponent";
 import AddEditReviewForm from "../../components/review/AddEditReviewForm";
 import { useMovieReviews } from "./hooks/useMovieReviews";
-import CastCard from "../../components/CastCard";
+import CastCard from "../../components/ui/cards/CastCard";
 import type { Review } from "../../domain/Review";
 
 function MovieDetail() {
