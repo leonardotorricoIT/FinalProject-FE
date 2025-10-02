@@ -12,7 +12,7 @@ const MovieFormWizard = lazy(
 );
 
 const ConfirmModal = lazy(() => import("../../components/ui/ConfirmModal"));
-const Toast = lazy(() => import("../../components/Toast"));
+const Toast = lazy(() => import("../../components/ui/Toast"))
 
 type WizardMode = "create" | "edit";
 

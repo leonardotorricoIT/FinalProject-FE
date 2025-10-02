@@ -6,7 +6,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
 import StatCard from "../../components/ui/cards/StatCard";
 import MyReviews from "../../components/review/MyReviews";
-import Toast from "../../components/Toast";
+import Toast from "../../components/ui/Toast";
 import MovieCard from "../../components/ui/cards/MovieCard";
 
 type ToastState = { message: string; type: "success" | "error" } | null;
