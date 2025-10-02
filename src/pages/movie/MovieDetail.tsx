@@ -34,7 +34,6 @@ function MovieDetail() {
   const isInWatched = user?.watched?.includes(movieId);
   const isInWatchlist = user?.watchlist?.includes(movieId);
 
-
   const handleSubmitReview = async (
     reviewData: Omit<Review, "id" | "createdAt">
   ) => {
@@ -141,10 +140,18 @@ function MovieDetail() {
                       </span>
                     ))}
                   </p>
+                  <p className="text-lg text-gray-500">
+                    tags •{" "}
+                    {movie.tags?.map((tag, index) => (
+                      <span key={index}>
+                        {tag}
+                        {index < (movie.tags?.length ?? 0) - 1 ? ", " : ""}
+                      </span>
+                    ))}
+                  </p>
                 </div>
 
                 <RatingBadge rating={avgRating} />
-
               </div>
 
               <p className="font-semibold dark:text-white">
