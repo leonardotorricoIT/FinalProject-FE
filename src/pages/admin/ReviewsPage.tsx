@@ -63,7 +63,7 @@ function ReviewsPage() {
             Reviews
           </h1>
 
-          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:items-center">
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 sm:items-center ">
             <SearchBar
               value={query}
               onChange={(value) => {
@@ -73,7 +73,7 @@ function ReviewsPage() {
             />
           </div>
 
-          <div className="min-h-screen bg-primary-bg py-10">
+          <div className="min-h-screen bg-primary-bg py-10 dark:bg-gray-800">
             {filteredReviews.length === 0 ? (
               <p className="text-gray-500 text-center">No results</p>
             ) : (

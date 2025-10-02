@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { MdLocalMovies } from "react-icons/md";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -16,11 +16,7 @@ function Navbar() {
 
   const menuItems = () => {
     if (!isLoggedIn) {
-      return (
-        <a href="/" className="hover:text-primary">
-          {i18n.navbar.home}
-        </a>
-      );
+      return null;
     }
     if (user.role === UserRole.Admin) {
       return (
@@ -38,16 +34,7 @@ function Navbar() {
       );
     }
     if (user.role === UserRole.User) {
-      return (
-        <>
-          <a href="/" className="hover:text-primary">
-            {i18n.navbar.home}
-          </a>
-          <a href="/watchlist" className="hover:text-primary">
-            {i18n.navbar.WatchList}
-          </a>
-        </>
-      );
+      return null;
     }
   };
 
@@ -55,7 +42,9 @@ function Navbar() {
     <nav className="bg-primary-bg px-6 py-3 border-b border-gray-300">
       <div className="flex justify-between items-center">
         <div className="text-xl font-title flex items-center">
-          <MdLocalMovies className="text-primary" /> {i18n.cinelog}
+          <Link to="/" className="text-xl font-title flex items-center">
+            <MdLocalMovies className="text-primary" /> {i18n.cinelog}
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-6">{menuItems()}</div>

@@ -60,10 +60,10 @@ function Dashboard() {
   return (
     <>
       <div>
-        <div className="min-h-screen bg-primary-bg dark:bg-gray-700 px-6 py-10">
-          <h2 className="font-title text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
-              Movie Management
-            </h2>
+        <div className="min-h-screen bg-primary-bg dark:bg-gray-800 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+          <h2 className="font-bold text-3xl  text-gray-800 dark:text-gray-100 mb-2">
+            Movie Management
+          </h2>
           <div className="md:flex items-center justify-between mb-6">
             <div className="mt-4 md:mt-0 md:flex-1 flex items-center gap-3">
               <SearchBar
