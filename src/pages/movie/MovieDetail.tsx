@@ -25,6 +25,8 @@ function MovieDetail() {
   const { myReview, otherReviews, addMyReview } = useMovieReviews(movieId);
 
   const movie = state.movies.find((m) => m.id === movieId);
+  const isInWatched = user?.watched?.includes(movieId);
+  const isInWatchlist = user?.watchlist?.includes(movieId);
 
   const handleSubmitReview = async (
     reviewData: Omit<Review, "id" | "createdAt">
@@ -70,33 +72,48 @@ function MovieDetail() {
                 <div className="flex gap-3 mt-6">
                   <button
                     onClick={async () => {
-                      const result = addToWatched(movieId);
+                      const result = await addToWatched(movieId);
                       setToast({
                         message:
-                          (await result) === "added"
+                          result === "added"
                             ? i18n.moviePage.addedToWatched
                             : i18n.moviePage.alredyInWatched,
-                        type: (await result) === "added" ? "success" : "error",
+                        type: result === "added" ? "success" : "error",
                       });
                     }}
-                    className="flex-1 text-white bg-secundary dark:bg-gray-700 dark:text-gray-200 py-3 rounded-xl font-semibold hover:brightness-110 dark:hover:bg-gray-600 transition"
+                    disabled={isInWatched}
+                    className={`flex-1 py-3 rounded-xl font-semibold transition ${
+                      isInWatched
+                        ? "bg-gray-400 cursor-not-allowed text-gray-200"
+                        : "text-white bg-secundary dark:bg-gray-700 dark:text-gray-200 hover:brightness-110 dark:hover:bg-gray-600"
+                    }`}
                   >
-                    {i18n.moviePage.watched}
+                    {isInWatched
+                      ? i18n.moviePage.alredyInWatched
+                      : i18n.moviePage.watched}
                   </button>
+
                   <button
                     onClick={async () => {
-                      const result = addToWatchlist(movieId);
+                      const result = await addToWatchlist(movieId);
                       setToast({
                         message:
-                          (await result) === "added"
+                          result === "added"
                             ? i18n.moviePage.addedToWatchlist
                             : i18n.moviePage.alredyInWatchlist,
-                        type: (await result) === "added" ? "success" : "error",
+                        type: result === "added" ? "success" : "error",
                       });
                     }}
-                    className="flex-1 text-white bg-primary dark:bg-gray-700 dark:text-gray-200 py-3 rounded-xl font-semibold hover:brightness-110 dark:hover:bg-gray-600 transition"
+                    disabled={isInWatchlist}
+                    className={`flex-1 py-3 rounded-xl font-semibold transition ${
+                      isInWatchlist
+                        ? "bg-gray-400 cursor-not-allowed text-gray-200"
+                        : "text-white bg-primary dark:bg-gray-700 dark:text-gray-200 hover:brightness-110 dark:hover:bg-gray-600"
+                    }`}
                   >
-                    {i18n.moviePage.watchlist}
+                    {isInWatchlist
+                      ? i18n.moviePage.alredyInWatchlist
+                      : i18n.moviePage.watchlist}
                   </button>
                 </div>
               )}
@@ -118,7 +135,6 @@ function MovieDetail() {
                     ))}
                   </p>
                 </div>
-                {/* Pasar dinamicamente el raiting */}
                 <RatingBadge rating={3} />
               </div>
 
