@@ -1,7 +1,7 @@
 import { MdEdit, MdDelete } from "react-icons/md";
 import { Table } from "../../components/Table";
 import { useState, lazy, Suspense, useMemo } from "react";
-import Navbar from "../../components/Navbar";
+
 import type { Movie } from "../../domain/Movie";
 import { useMovies } from "../../context/MoviesContext";
 import LoadingModal from "../../components/LoadingModalFallback";
@@ -36,7 +36,9 @@ function Dashboard() {
   const closeWizard = () => {
     setIsWizardOpen(false);
   };
-
+  console.log(showToast);
+  console.log(messageToast);
+  console.log(Toast);
   const handleDelete = async () => {
     console.log("Delete movie with id:", selectedId);
     if (selectedId != null) {

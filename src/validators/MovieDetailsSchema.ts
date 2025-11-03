@@ -1,16 +1,15 @@
 import * as Yup from "yup";
 
-const uniqueInsensitive =
-  (label: string) => (list?: (string | undefined)[]) => {
-    if (!Array.isArray(list)) return true;
-    const seen = new Set<string>();
-    for (const item of list) {
-      const key = (item ?? "").toLowerCase();
-      if (seen.has(key)) return false;
-      seen.add(key);
-    }
-    return true;
-  };
+const uniqueInsensitive = () => (list?: (string | undefined)[]) => {
+  if (!Array.isArray(list)) return true;
+  const seen = new Set<string>();
+  for (const item of list) {
+    const key = (item ?? "").toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+  }
+  return true;
+};
 
 function stringList({
   label,
@@ -31,7 +30,7 @@ function stringList({
       .max(itemMaxLen, `${label} item max ${itemMaxLen} chars`)
   )
     .ensure()
-    .test("unique", `${label} must be unique`, uniqueInsensitive(label));
+    .test("unique", `${label} must be unique`, uniqueInsensitive());
 
   if (minItems > 0)
     schema = schema.min(

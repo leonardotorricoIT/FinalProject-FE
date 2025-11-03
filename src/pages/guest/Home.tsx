@@ -1,4 +1,3 @@
-import Navbar from "../../components/Navbar";
 import MovieCard from "../../components/MovieCard";
 import { useMovies } from "../../context/MoviesContext";
 import { useMemo, useState } from "react";
