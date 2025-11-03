@@ -4,12 +4,12 @@ import { FaArrowLeft } from "react-icons/fa";
 import RatingBadge from "../../components/RatingBadge";
 import { i18n } from "../../i18n";
 import { useUser } from "../../context/UserContext";
-import Toast from "../../components/Toast";
+import Toast from "../../components/ui/Toast";
 import { useState } from "react";
 import ReviewComponent from "../../components/review/ReviewComponent";
 import AddEditReviewForm from "../../components/review/AddEditReviewForm";
 import { useMovieReviews } from "./hooks/useMovieReviews";
-import CastCard from "../../components/CastCard";
+import CastCard from "../../components/ui/cards/CastCard";
 import type { Review } from "../../domain/Review";
 
 function MovieDetail() {

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
-import type { Movie } from "../domain/Movie";
-import KebabMenu from "./KebabMenu";
+import KebabMenu from "../../KebabMenu";
+import type { Movie } from "../../../domain/Movie";
+
 
 type MovieCardProps = {
   movie: Movie;
