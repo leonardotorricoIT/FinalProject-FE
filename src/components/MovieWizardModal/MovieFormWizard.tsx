@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Movie } from "../../domain/Movie";
 import AddEditMovieModal from "../AddEditMovieModal/AddEditMovieModal";
-import BreadCrumbSteps from "../BreadCrumbsSteps";
+import BreadCrumbSteps from "../ui/breadCrumb/BreadCrumbsSteps";
 import {
   buildTouched,
   makeEmptyMovieDraft,
@@ -43,20 +43,21 @@ export default function MovieFormWizard({
 
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.overflow = "";
     };
   }, [open]);
 
-  if (!open) return null;
   const initialValues = useMemo(
     () => ({ ...makeEmptyMovieDraft(), ...initial }),
     [initial]
   );
+
+  if (!open) return null;
 
   const handleSubmit = (movieValue: Partial<Movie>) => {
     if (editable && onEdit) {
@@ -76,13 +77,15 @@ export default function MovieFormWizard({
     try {
       await schema.validate(formik.values, { abortEarly: false });
       return true;
-    } catch (error: any) {
-      const errors = mapYupToMovieErrors(error as yup.ValidationError);
-      formik.setErrors({ ...formik.errors, ...errors });
-      formik.setTouched(
-        { ...(formik.touched ?? {}), ...(buildTouched(stepFields) ?? {}) },
-        true
-      );
+    } catch (error: unknown) {
+      if (error instanceof yup.ValidationError) {
+        const errors = mapYupToMovieErrors(error);
+        formik.setErrors({ ...formik.errors, ...errors });
+        formik.setTouched(
+          { ...(formik.touched ?? {}), ...(buildTouched(stepFields) ?? {}) },
+          true
+        );
+      }
       return false;
     }
   }

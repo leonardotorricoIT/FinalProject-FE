@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor, act } from "@testing-library/react";
-import { UserProvider, useUser } from "./UserContext";
+import { UserProvider, useUser } from "../context/UserContext";
 import { mockGuest } from "../Mocks/user.mock";
 import type { User } from "../domain/User";
 

@@ -1,6 +1,6 @@
 type ReviewTagsProps = {
   tags: string[];
-  setFieldValue?: (field: string, value: any) => void;
+  setFieldValue?: (field: string, value: unknown) => void;
 };
 
 const ReviewTags = ({ tags, setFieldValue }: ReviewTagsProps) => {
