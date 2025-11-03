@@ -1,8 +1,8 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router";
-import MovieCard from "./MovieCard";
 import type { Movie } from "../domain/Movie";
+import MovieCard from "../components/ui/cards/MovieCard";
 
 const renderWithRouter = (ui: React.ReactNode) =>
   render(<MemoryRouter>{ui}</MemoryRouter>);

@@ -4,7 +4,7 @@ import { Form, Formik, type FormikHelpers } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router";
 import { useUser } from "../../context/UserContext";
-import InputField from "../../components/InputField";
+import InputField from "../../components/ui/form/InputField";
 
 type FieldType = "email" | "password";
 

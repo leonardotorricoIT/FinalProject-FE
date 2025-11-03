@@ -1,5 +1,5 @@
 import {  useFormikContext } from "formik";
-import InputField from "../InputField";
+import InputField from "../ui/form/InputField";
 import { fields, type FieldType, type Step1Fields } from "./movieFormFields";
 import type { MovieDraft } from "./movieFormHelpers";
 
