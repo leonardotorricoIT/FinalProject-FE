@@ -11,7 +11,7 @@ type TableProps<T> = {
   columns: Column<T>[];
 };
 
-export function Table<T extends Record<string, any>>({
+export function Table<T extends Record<string, unknown>>({
   data,
   columns,
 }: TableProps<T>) {

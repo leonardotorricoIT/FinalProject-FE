@@ -1,3 +1,4 @@
+/* eslint-disable */
 /// <reference types="vitest" />
 import "@testing-library/jest-dom";
 

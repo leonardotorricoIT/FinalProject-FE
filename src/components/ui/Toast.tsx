@@ -4,12 +4,13 @@ import type { ToastProps } from "../domain/Toast";
 
 export default function Toast({
   message,
-  type,
-  duration,
+  type = "success",
+  duration = 3000,
   onClose,
 }: ToastProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [isAnimating, setIsAnimating] = useState(false);
+
   useEffect(() => {
     setTimeout(() => setIsAnimating(true), 10);
 
@@ -18,6 +19,7 @@ export default function Toast({
     }, duration);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [duration]);
 
   const handleClose = () => {
@@ -27,6 +29,7 @@ export default function Toast({
       onClose?.();
     }, 300);
   };
+
   const getIconAndStyles = () => {
     switch (type) {
       case "success":
@@ -64,16 +67,14 @@ export default function Toast({
   return (
     <div className="fixed top-4 right-4 z-50">
       <div
-        className={`
-            ${bgColor} ${borderColor} ${textColor}
-            border rounded-lg shadow-lg max-w-md min-w-80
-            transform transition-all duration-300 ease-in-out
-            ${
-              isAnimating
-                ? "translate-y-0 opacity-100 scale-100"
-                : "translate-y-2 opacity-0 scale-95"
-            }
-          `}
+        className={`${bgColor} ${borderColor} ${textColor}
+          border rounded-lg shadow-lg max-w-md min-w-80
+          transform transition-all duration-300 ease-in-out
+          ${
+            isAnimating
+              ? "translate-y-0 opacity-100 scale-100"
+              : "translate-y-2 opacity-0 scale-95"
+          }`}
         style={{
           boxShadow:
             "0 10px 25px -3px rgba(0, 166, 232, 0.1), 0 4px 6px -2px rgba(0, 166, 232, 0.05)",
@@ -88,12 +89,7 @@ export default function Toast({
 
           <button
             onClick={handleClose}
-            className={`
-                flex-shrink-0 ml-2 p-1 rounded-full
-                hover:bg-black hover:bg-opacity-5
-                transition-colors duration-200
-                ${textColor}
-              `}
+            className={`flex-shrink-0 ml-2 p-1 rounded-full hover:bg-black hover:bg-opacity-5 transition-colors duration-200 ${textColor}`}
             aria-label="Cerrar notificación"
           >
             <X className="w-4 h-4" />
