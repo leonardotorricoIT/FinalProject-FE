@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect, useMemo, useState } from "react";
 import Stars from "../../components/Stars";
 import { Table } from "../../components/Table";

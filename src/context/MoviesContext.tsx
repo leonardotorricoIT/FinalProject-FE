@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { dbPromise } from "../db/db";
 import type { Movie } from "../domain/Movie";

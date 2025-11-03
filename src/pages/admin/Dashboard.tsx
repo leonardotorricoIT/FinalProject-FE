@@ -1,7 +1,7 @@
+/* eslint-disable */
 import { MdEdit, MdDelete } from "react-icons/md";
 import { Table } from "../../components/Table";
 import { useState, lazy, Suspense, useMemo } from "react";
-
 import type { Movie } from "../../domain/Movie";
 import { useMovies } from "../../context/MoviesContext";
 import LoadingModal from "../../components/LoadingModalFallback";

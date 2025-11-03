@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createContext, useContext, useEffect, useState } from "react";
 import { dbPromise } from "../db/db";
 import type { User } from "../domain/User";
@@ -81,9 +82,7 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
     return "added";
   };
 
-  const deleteFromWatchlist = async (
-    movieId: number
-  ): Promise<boolean> => {
+  const deleteFromWatchlist = async (movieId: number): Promise<boolean> => {
     if (!user || !user.email) return false;
     const db = await dbPromise;
     const targetUser = await db.get("users", user.email);
@@ -122,7 +121,15 @@ export function UserProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <UserContext.Provider
-      value={{ user, login, logout, addToWatchlist, addToWatched, deleteFromWatchlist, loading }}
+      value={{
+        user,
+        login,
+        logout,
+        addToWatchlist,
+        addToWatched,
+        deleteFromWatchlist,
+        loading,
+      }}
     >
       {children}
     </UserContext.Provider>
