@@ -1,4 +1,3 @@
-import MovieCard from "../../components/MovieCard";
 import { useMovies } from "../../context/MoviesContext";
 import { useMemo, useState } from "react";
 import SearchBar from "../../components/ui/SearchBar";
